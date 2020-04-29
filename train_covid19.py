@@ -1,5 +1,5 @@
 # USAGE
-# python train.py --dataset dataset
+# python train.py --dataset1 dataset1
 
 # import the necessary packages
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -25,8 +25,8 @@ import os
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-d", "--dataset", required=True,
-	help="path to input dataset")
+ap.add_argument("-d", "--dataset1", required=True,
+	help="path to input dataset1")
 ap.add_argument("-p", "--plot", type=str, default="plot.png",
 	help="path to output loss/accuracy plot")
 ap.add_argument("-m", "--model", type=str, default="covid19.model",
@@ -39,10 +39,10 @@ INIT_LR = 1e-3
 EPOCHS = 25
 BS = 8
 
-# grab the list of images in our dataset directory, then initialize
+# grab the list of images in our dataset1 directory, then initialize
 # the list of data (i.e., images) and class images
 print("[INFO] loading images...")
-imagePaths = list(paths.list_images(args["dataset"]))
+imagePaths = list(paths.list_images(args["dataset1"]))
 data = []
 labels = []
 
