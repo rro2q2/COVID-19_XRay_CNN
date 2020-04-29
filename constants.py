@@ -25,7 +25,7 @@ import pandas as pd
 
 ## Global hyperparameters ##
 learning_rate = 1e-3
-epochs = 10
+epochs = 25
 batch_size = 10
 num_classes = 2
 

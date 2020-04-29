@@ -57,7 +57,7 @@ def one_hot_encoding(labels: np.ndarray) -> np.ndarray:
 
 
 def main():
-    dataset = list(paths.list_images('../dataset0'))
+    dataset = list(paths.list_images('../dataset2'))
     inputs = []
     labels = []
     inputs = process_image(dataset, inputs) / 255.0  # scaling between [0, 1]
@@ -101,6 +101,20 @@ def main():
 
     plt.legend(loc="upper right")
     plt.savefig('../output/train_loss.png')
+
+    # Plot train accuracy
+    plt.style.use("ggplot")
+    plt.figure()
+    plt.title("Training Accuracy on COVID-19 Dataset")
+    plt.xlabel("Epoch #")
+    plt.ylabel("Accuracy")
+
+    plt.plot(np.arange(0, epochs), conv_H.history["accuracy"], label="ConvNet")
+    plt.plot(np.arange(0, epochs), alex_H.history["accuracy"], label="AlexNet")
+    plt.plot(np.arange(0, epochs), vgg_H.history["accuracy"], label="VGG16")
+
+    plt.legend(loc="lower right")
+    plt.savefig('../output/train_acc.png')
 
 
 if __name__ == '__main__':
